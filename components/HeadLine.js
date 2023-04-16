@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from './HeadLine.module.css'
 
 export function HeadLine(props) {
 	return (
