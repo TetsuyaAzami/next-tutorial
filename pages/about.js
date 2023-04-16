@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Footer } from '@/components/Footer'
 import { Links } from '@/components/Links'
+import { HeadLine } from '@/components/HeadLine'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>About page</h1>
+        <HeadLine page='about'/>
         <Links />
         <Footer />
       </main>
