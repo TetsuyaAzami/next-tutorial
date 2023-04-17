@@ -6,33 +6,32 @@ import { Header } from "@/src/components/Header";
 import styles from "@/src/styles/index.module.css";
 import { useCallback } from "react";
 import { useEffect } from "react";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const foo = 1;
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const [count, setCount] = useState(1);
+
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+  };
   useEffect(() => {
-    console.log("マウントされました");
     document.body.style.backgroundColor = "lightblue";
     return () => {
-      console.log("アンマウントされました");
       document.body.style.backgroundColor = "";
     };
   }, []);
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Index</title>
       </Head>
       <Header />
-      <a href="/about" onClick={handleClick}>
-        ボタン
-      </a>
+      <div className={styles.container}>
+        {count}
+        <button onClick={handleClick}>ボタン</button>
+      </div>
       <Main page="index" />
       <Footer />
     </div>
