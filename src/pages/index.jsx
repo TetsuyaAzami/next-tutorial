@@ -5,6 +5,7 @@ import Head from "next/head";
 import { Header } from "@/src/components/Header";
 import styles from "@/src/styles/index.module.css";
 import { useCallback } from "react";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +16,20 @@ export default function Home() {
     e.preventDefault();
     alert(foo);
   }, []);
+  useEffect(() => {
+    console.log("マウントされました");
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      console.log("アンマウントされました");
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
         <title>Index</title>
       </Head>
       <Header />
-      {/* <button onClick={() => alert("ボタンが押されました")}>ボタン</button> */}
       <a href="/about" onClick={handleClick}>
         ボタン
       </a>
