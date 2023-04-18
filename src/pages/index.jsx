@@ -18,18 +18,19 @@ export default function Home() {
   const handleChange = useCallback((e) => {
     if (e.target.value.length > 3) {
       alert("3文字以上は入力できません。");
+      return;
     }
     setText(e.target.value.trim());
   });
 
   const handleClick = useCallback(() => {
     if (count < 10) {
-      setCount((count) => count + 1);
+      setCount((prevCount) => prevCount + 1);
     }
   }, [count]);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   useEffect(() => {
