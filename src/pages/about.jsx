@@ -6,10 +6,17 @@ import { useBgLightBlue } from "@/src/hooks/useBgLightBlue";
 import { useCounter } from "@/src/hooks/useCounter";
 import { useInputArray } from "@/src/hooks/useInputArray";
 
-export default function About() {
-  useBgLightBlue();
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
+export default function About(props) {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <div>
