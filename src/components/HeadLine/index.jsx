@@ -1,13 +1,14 @@
 import styles from "@/src/components/HeadLine/HeadLine.module.css";
 
-export function HeadLine(props) {
+export function HeadLine({ page, onClick, children, items }) {
   return (
     <div>
-      <h1 className={styles.title}>{props.page} page</h1>
+      <h1 className={styles.title}>{page} page</h1>
       <p className={styles.description}>
-        Get started by editing {props.children}
+        Get started by editing {children}
+        itemの数は{items.length}こです。
       </p>
-      <button onClick={props.onClick}>ボタン</button>
+      <button onClick={onClick}>ボタン</button>
     </div>
   );
 }
