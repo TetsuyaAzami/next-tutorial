@@ -8,7 +8,7 @@ import { useInputArray } from "@/src/hooks/useInputArray";
 
 export default function About(props) {
   const {
-    count,
+    doubleCount,
     isShow,
     handleClick,
     handleDisplay,
@@ -25,7 +25,7 @@ export default function About(props) {
       </Head>
       <Header />
       <div class="container">
-        <h1>{isShow ? count : null}</h1>
+        {isShow ? <h2>{doubleCount}</h2> : null}
         <button onClick={handleClick}>ボタン</button>
         <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
         <input type="text" onChange={handleChange} />
