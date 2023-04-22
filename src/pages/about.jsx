@@ -6,18 +6,7 @@ import { useBgColor } from "@/src/hooks/useBgLightBlue";
 import { useCounter } from "@/src/hooks/useCounter";
 import { useInputArray } from "@/src/hooks/useInputArray";
 
-export default function About(props) {
-  const {
-    doubleCount,
-    isShow,
-    handleClick,
-    handleDisplay,
-    text,
-    array,
-    handleChange,
-    handleAdd,
-  } = props;
-
+const About = (props) => {
   return (
     <div>
       <Head>
@@ -25,13 +14,15 @@ export default function About(props) {
       </Head>
       <Header />
       <div class="container">
-        {isShow ? <h2>{doubleCount}</h2> : null}
-        <button onClick={handleClick}>ボタン</button>
-        <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
-        <input type="text" onChange={handleChange} />
-        <button onClick={handleAdd}>追加</button>
+        {props.isShow ? <h2>{props.doubleCount}</h2> : null}
+        <button onClick={props.handleClick}>ボタン</button>
+        <button onClick={props.handleDisplay}>
+          {props.isShow ? "非表示" : "表示"}
+        </button>
+        <input type="text" onChange={props.handleChange} />
+        <button onClick={props.handleAdd}>追加</button>
         <ul>
-          {array.map((item) => {
+          {props.array.map((item) => {
             return <li key={item}>{item}</li>;
           })}
         </ul>
@@ -40,4 +31,6 @@ export default function About(props) {
       <Footer />
     </div>
   );
-}
+};
+
+export default About;

@@ -1,6 +1,6 @@
 import styles from "@/src/components/HeadLine/HeadLine.module.css";
 
-export function HeadLine({ page, onClick, children, items }) {
+export const HeadLine = ({ page, onClick, children, items }) => {
   return (
     <div>
       <h1 className={styles.title}>{page} page</h1>
@@ -11,4 +11,4 @@ export function HeadLine({ page, onClick, children, items }) {
       <button onClick={onClick}>ボタン</button>
     </div>
   );
-}
+};

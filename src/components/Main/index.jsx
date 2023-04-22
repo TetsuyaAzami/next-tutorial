@@ -30,7 +30,7 @@ const ITEMS = [
   },
 ];
 
-export function Main(props) {
+export const Main = (props) => {
   const [items, setItem] = useState(ITEMS);
   const handleReduce = () => {
     setItem((prevItem) => prevItem.slice(0, prevItem.length - 1));
@@ -48,4 +48,4 @@ export function Main(props) {
       <Links items={items} handleReduce={handleReduce} />
     </main>
   );
-}
+};
